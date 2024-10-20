@@ -14,33 +14,33 @@ type contactInfo struct {
 	zip    int64
 }
 
-// func main() { //Uncomment to understand
-// 	// iqbal := person{"Iqbal", "Hossain"} // The object assumes Iqbal is the firstname and hossain in the lastname
-// 	iqbal := person{ // another way to define embedded structs
-// 		firstName: "Iqbal",
-// 		lastName:  "Hossain",
+func main() { //Uncomment to understand
+	// iqbal := person{"Iqbal", "Hossain"} // The object assumes Iqbal is the firstname and hossain in the lastname
+	iqbal := person{ // another way to define embedded structs
+		firstName: "Iqbal",
+		lastName:  "Hossain",
 
-// 		// contact: contactInfo{ // one way to use embeded structs
-// 		contactInfo: contactInfo{ // if we have key and value same in the struct then we can use only contactInfo
-// 			number: "8801403229479",
-// 			zip:    1230,
-// 		},
-// 	}
+		// contact: contactInfo{ // one way to use embeded structs
+		contactInfo: contactInfo{ // if we have key and value same in the struct then we can use only contactInfo
+			number: "8801403229479",
+			zip:    1230,
+		},
+	}
 
-// 	iqbal.updateName("sabbir") // this will not work as go is a pass by value language. so the struct will never be updated in this manner.
-// 	iqbal.print()
-// }
-
-func main() {
-	var alex person
-
-	alex.firstName = "alex"
-	alex.lastName = "again"
-
-	fmt.Printf("%+v", alex)
+	iqbal.updateName("sabbir") // this will not work as go is a pass by value language. so the struct will never be updated in this manner.
+	iqbal.print()
 }
 
-func (p person) updateName(newFirstName string) { // by default go is a pass by value type language. so in here go is creating a compy of the struct. saving it into a different location in memory. and modifying that memory
+// func main() {
+// 	var alex person
+
+// 	alex.firstName = "alex"
+// 	alex.lastName = "again"
+
+// 	fmt.Printf("%+v", alex)
+// }
+
+func (p person) updateName(newFirstName string) { // by default go is a pass by value type language. so in here go is creating a copy of the struct. saving it into a different location in memory. and modifying that memory
 	p.firstName = newFirstName
 }
 
