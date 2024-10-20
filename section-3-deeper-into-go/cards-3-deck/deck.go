@@ -17,6 +17,7 @@ func newDeck() deck {
 			cards = append(cards, value+" of "+suit)
 		}
 	}
+	fmt.Println(cards)
 
 	return cards
 }
