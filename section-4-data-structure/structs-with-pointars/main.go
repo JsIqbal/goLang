@@ -25,7 +25,7 @@ func main() {
 	}
 
 	/*
-		iqbalPointer := &iqbal
+		iqbalPointer := &iqbal // address of the value for iqbal in Hexadecimal
 		iqbalPointer.updateName("sabbir")
 
 		writing the above lines are equivalent to:
@@ -33,12 +33,13 @@ func main() {
 
 		if you use pointer to structs in the reciever of a function
 	*/
-	iqbal.updateName("sabbir")
+	iqbal.updateName("sabbir") // if called with a type and the functions reciever parameter is of type pointer to a type then go by default gets the address of the value and calls the function with the pointer
 	iqbal.print()
 }
 
-func (pointerToPerson *person) updateName(newFirstName string) {
-	(*pointerToPerson).firstName = newFirstName
+// in here *person is a completely different type from person type
+func (pointerToPerson *person) updateName(newFirstName string) { // pointerToPerson is of type (pointer to a person)
+	(*pointerToPerson).firstName = newFirstName // *pointerToPerson means the value in the address of ponterToPerson in memory
 }
 
 func (p person) print() {
