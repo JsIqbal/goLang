@@ -1,0 +1,1 @@
+zero value: if we do not initialize a variable with any value then go initializes the variable using its zero value 
