@@ -7,9 +7,9 @@ import (
 
 func main() {
 	links := []string{
-		"https://google.com",
-		"https://youtube.com",
-		"https://facebook.com",
+		"http://google.com",
+		"http://youtube.com",
+		"http://facebook.com",
 	}
 
 	c := make(chan string)
@@ -18,6 +18,8 @@ func main() {
 		go checkLink(link, c)
 	}
 
+	fmt.Println(<- c)
+	fmt.Println(<- c)
 	fmt.Println(<- c)
 }
 
